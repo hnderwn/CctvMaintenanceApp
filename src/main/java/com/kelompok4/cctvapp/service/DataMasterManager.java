@@ -360,12 +360,12 @@ public class DataMasterManager {
 
             if (generatedId > 0) {
                 CctvUnit unitToUpdate = log.getCctvUnit();
-                unitToUpdate.setStatus("Perbaikan");
+                unitToUpdate.setStatus("Rusak");
                 boolean updateSuccess = cctvUnitDAO.updateCctvUnit(unitToUpdate, conn);
                 if (!updateSuccess) {
                     throw new SQLException("Gagal mengupdate status CCTV, transaksi akan di-rollback.");
                 }
-                System.out.println("Manager: Status CCTV ID " + unitToUpdate.getIdCctv() + " berhasil diupdate menjadi 'Perbaikan'.");
+                System.out.println("Manager: Status CCTV ID " + unitToUpdate.getIdCctv() + " berhasil diupdate menjadi 'Rusak'.");
             } else {
                 throw new SQLException("Gagal menyimpan log kerusakan, transaksi akan di-rollback.");
             }

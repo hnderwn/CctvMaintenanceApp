@@ -343,7 +343,7 @@ public class PanelLogKerusakan extends JPanel {
             try {
                 int generatedId = dataMasterManager.addLogKerusakan(log);
                 if (generatedId > 0) {
-                    String pesan = "<html>Log Kerusakan <b>ID: " + generatedId + " - Unit: " + log.getCctvUnit().getIdCctv() + "</b> berhasil disimpan!</html>";
+                    String pesan = "<html>Log Maintenance <b>ID: " + generatedId + " - Unit CCTV: " + log.getCctvUnit().getIdCctv() + "</b> berhasil disimpan!<br><b>Status CCTV Unit diperbaharui menjadi Rusak</b></html>";
                     NotificationManager.showSuccess(parentComponentForDialog, pesan);
                     loadLogKerusakan();
                     clearForm();
@@ -461,7 +461,7 @@ public class PanelLogKerusakan extends JPanel {
         if (NotificationManager.showConfirm(parentComponentForDialog, konfirmasiPesan)) {
             try {
                 if (dataMasterManager.deleteLogKerusakan(idLog)) {
-                    String pesanSukses = "<html>Log Kerusakan <b>ID: " + idLog + " - Lokasi: " + lokasi + "</b> berhasil dihapus!</html>";
+                    String pesanSukses = "<html>Log Kerusakan <b>ID: " + idLog + " - Lokasi: " + lokasi + "</b> berhasil dihapus!<br><b>Tolong cek lagi status CCTV Unit</b></html>";
                     NotificationManager.showSuccess(parentComponentForDialog, pesanSukses);
                     loadLogKerusakan();
                     clearForm();

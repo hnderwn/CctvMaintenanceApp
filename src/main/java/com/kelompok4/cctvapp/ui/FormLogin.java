@@ -4,6 +4,7 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.kelompok4.cctvapp.User;
 import com.kelompok4.cctvapp.service.DataMasterManager;
 import com.kelompok4.cctvapp.service.UserSession;
+import com.kelompok4.cctvapp.util.NotificationManager;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -219,14 +220,14 @@ public class FormLogin extends JFrame {
         String passwordInput = new String(txtPassword.getPassword());
 
         if (usernameInput.isEmpty() || passwordInput.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Username dan Password tidak boleh kosong!", "Input Tidak Lengkap", JOptionPane.WARNING_MESSAGE);
+             NotificationManager.showError(this, "Username atau Password salah!");
             return;
         }
 
         User loggedInUser = dataMasterManager.authenticateUser(usernameInput, passwordInput);
-        UserSession.getInstance().login(loggedInUser);
 
         if (loggedInUser != null) {
+            UserSession.getInstance().login(loggedInUser);
             String namaSapaan = (loggedInUser.getNamaLengkap() != null && !loggedInUser.getNamaLengkap().isEmpty())
                     ? loggedInUser.getNamaLengkap()
                     : loggedInUser.getUsername();

@@ -341,7 +341,7 @@ public class PanelLogMaintenance extends JPanel {
             try {
                 int generatedId = dataMasterManager.addLogMaintenance(log);
                 if (generatedId > 0) {
-                    String pesan = "<html>Log Maintenance <b>ID: " + generatedId + " - Unit CCTV: " + log.getCctvUnit().getIdCctv() + "</b> berhasil disimpan!</html>";
+                    String pesan = "<html>Log Maintenance <b>ID: " + generatedId + " - Unit CCTV: " + log.getCctvUnit().getIdCctv() + "</b> berhasil disimpan!<br><b>Status CCTV Unit diperbaharui menjadi Rusak</b></html>";  
                     NotificationManager.showSuccess(parentComponentForDialog, pesan);
                     loadLogMaintenance();
                     clearForm();
@@ -422,7 +422,7 @@ public class PanelLogMaintenance extends JPanel {
 
         if (log != null) {
             try {
-                int idLogToUpdate = Integer.parseInt(tableModel.getValueAt(selectedRow, 0).toString());
+                int idLogToUpdate = Integer.parseInt(idLogStr);
                 log.setIdLog(idLogToUpdate);
 
                 if (dataMasterManager.updateLogMaintenance(log)) {
@@ -456,7 +456,7 @@ public class PanelLogMaintenance extends JPanel {
         if (NotificationManager.showConfirm(parentComponentForDialog, konfirmasiPesan)) {
             try {
                 if (dataMasterManager.deleteLogMaintenance(idLog)) {
-                    String pesanSukses = "<html>Log Maintenance <b>ID: " + idLog + " - Unit CCTV: " + idUnit + "</b> berhasil dihapus!</html>";
+                    String pesanSukses = "<html>Log Maintenance <b>ID: " + idLog + " - Unit CCTV: " + idUnit + "</b> berhasil dihapus!<br><b>Tolong cek lagi status CCTV Unit</b></html>";
                     NotificationManager.showSuccess(parentComponentForDialog, pesanSukses);
                     loadLogMaintenance();
                     clearForm();

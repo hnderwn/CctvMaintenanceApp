@@ -34,7 +34,7 @@ public class Komponen {
     public void setStok(int stok) { this.stok = stok; }
     public void setHargaSatuan(BigDecimal hargaSatuan) { this.hargaSatuan = hargaSatuan; }
     
-    @Override // Ini menandakan kita menimpa method dari Object class
+    @Override 
     public String toString() {
         return idKomponen +  " - " + namaKomponen +  " - " + "Stok: " + stok + " - " + " Rp." + hargaSatuan;
     }
