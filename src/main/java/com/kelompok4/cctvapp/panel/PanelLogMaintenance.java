@@ -97,7 +97,7 @@ public class PanelLogMaintenance extends JPanel {
         lblTeknisi = new JLabel("Teknisi:");
         lblTanggal = new JLabel("Tanggal:");
         lblJam = new JLabel("Jam (HH:mm):");
-        lblDeskripsiLog = new JLabel("Deskripsi Log:");
+        lblDeskripsiLog = new JLabel("Deskripsi:");
 
         cmbCctvUnitModel = new DefaultComboBoxModel<>();
         cmbCctvUnit = new JComboBox<>(cmbCctvUnitModel);

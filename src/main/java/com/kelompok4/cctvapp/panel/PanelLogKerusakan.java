@@ -105,6 +105,7 @@ public class PanelLogKerusakan extends JPanel {
         cmbTeknisi = new JComboBox<>(cmbTeknisiModel);
         dateChooserTanggal = new JDateChooser();
         dateChooserTanggal.setDateFormatString("yyyy-MM-dd");
+        dateChooserTanggal.setMaxSelectableDate(new Date());    
         txtJam = new JTextField(5);
         txtDeskripsi = new JTextArea(2, 20);
         txtDeskripsi.setLineWrap(true);
